@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>6a68.net</title>
+    <description>tech blog // jared hirsch // ¯\_(ツ)_/¯
+</description>
+    <link>http://6a68.net/</link>
+    <atom:link href="http://6a68.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 06 Jan 2018 01:12:12 +0000</pubDate>
+    <lastBuildDate>Sat, 06 Jan 2018 01:12:12 +0000</lastBuildDate>
+    <generator>Jekyll v3.6.2</generator>
+    
+      <item>
+        <title>An idea for fixing fake news with crypto</title>
+        <description>&lt;p&gt;Here’s a sketch of an idea that could be used to implement a news trust system on the web. (This is apropos of Mozilla’s &lt;a href=&quot;https://blog.mozilla.org/blog/2017/08/08/mozilla-information-trust-initiative-building-movement-fight-misinformation-online/&quot;&gt;Information Trust Initiative&lt;/a&gt;, announced last year.)&lt;/p&gt;
+
+&lt;p&gt;Suppose we used public key crypto (digital badges?) to make some verifiable assertions about an online news item:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;person X wrote the headline / article&lt;/li&gt;
+  &lt;li&gt;news organization Y published the headline / article&lt;/li&gt;
+  &lt;li&gt;person X is a credentialed journalist (degreed or affiliated with a news organization)&lt;/li&gt;
+  &lt;li&gt;news organization Y is a credentialed media organization (not sure how to define this)&lt;/li&gt;
+  &lt;li&gt;the headline / article has not been altered from its published form&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The article could include a  &lt;code class=&quot;highlighter-rouge&quot;&gt;meta&lt;/code&gt; tag in the page’s header that links to a &lt;code class=&quot;highlighter-rouge&quot;&gt;.well-known/news-trust&lt;/code&gt; file at a stable URL, and that file could then include everything needed to verify the assertions.&lt;/p&gt;
+
+&lt;p&gt;If this information were available to social media feeds / news aggregators, then it’d be easy to:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;automatically calculate the trustworthiness of shared news items at internet scale&lt;/li&gt;
+  &lt;li&gt;inform users which items are trustworthy (for example, show a colored border around the item)&lt;/li&gt;
+  &lt;li&gt;factor trustworthiness into news feed algorithms (allow users to hide or show lower-scored items, based on user settings)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;One unsolved issue here is who issues the digital credentials for media. I need to look into this.&lt;/p&gt;
+
+&lt;p&gt;What do you think? Is this a good idea, a silly idea, something that’s been done before?&lt;/p&gt;
+
+&lt;p&gt;I don’t have comments set up here, so you can let me know &lt;a href=&quot;https://twitter.com/intent/tweet?text=yo+@6a68:&quot;&gt;on twitter&lt;/a&gt; or via email.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 06 Jan 2018 00:09:00 +0000</pubDate>
+        <link>http://6a68.net/2018/trustworthy-news/</link>
+        <guid isPermaLink="true">http://6a68.net/2018/trustworthy-news/</guid>
+        
+        
+        <category>mozilla</category>
+        
+        <category>miti</category>
+        
+        <category>big-ideas</category>
+        
+      </item>
+    
+      <item>
+        <title>Test Pilot in 2018: Lessons Learned from Screenshots</title>
+        <description>&lt;h2 id=&quot;test-pilot-in-2018-lessons-learned-from-graduating-screenshots-into-firefox&quot;&gt;Test Pilot in 2018: Lessons learned from graduating Screenshots into Firefox&lt;/h2&gt;
+
+&lt;p&gt;Wil and I were talking about the Bugzilla vs Github question for Screenshots a couple of days ago, and I have to admit that I’ve come around to “let’s just use Bugzilla for everything, and just ride the trains, and work with the existing processes as much as possible.”&lt;/p&gt;
+
+&lt;p&gt;I think it’s important to point out that this is a complete departure from my original point of view. Getting an inside view of how and why Firefox works the way it does has changed my mind. Everything just moves slower, with so many good reasons for doing so (good topic for another blog post). Given that our goal is to hand Screenshots off, just going with the existing processes, minimizing friction, is the way to go.&lt;/p&gt;
+
+&lt;p&gt;If Test Pilot’s goals include landing stuff in Firefox, what does this mean for the way that we run earlier steps in the product development process?&lt;/p&gt;
+
+&lt;h2 id=&quot;suggestions-for-experiments-that-the-test-pilot-team-will-graduate-into-firefox&quot;&gt;Suggestions for experiments that the Test Pilot team will graduate into Firefox&lt;/h2&gt;
+
+&lt;h3 id=&quot;ship-maximal-not-minimal-features&quot;&gt;Ship maximal, not minimal, features&lt;/h3&gt;
+
+&lt;p&gt;I don’t think we should plan on meaningful iteration once a feature lands in Firefox. It’s just fundamentally too slow to iterate rapidly, and it’s way too hard for a very small team to ship features faster than that default speed (again, many good reasons for that friction).&lt;/p&gt;
+
+&lt;p&gt;The next time we graduate something into Firefox, we should plan to ship much more than a minimum viable product, because we likely won’t get far past that initial landing point.&lt;/p&gt;
+
+&lt;h3 id=&quot;when-in-firefox-embrace-the-firefox-ways&quot;&gt;When in Firefox, embrace the Firefox ways&lt;/h3&gt;
+
+&lt;p&gt;Everything we do, once an experiment gets approval to graduate, should be totally Firefox-centric. Move to Bugzilla for bugs (except, maybe, for server bugs). Mozilla-central for code, starting with one huge import from Github (again, except for server code). Git-cinnabar works really well, if you prefer git over mercurial. We have committers within the team now, and relationships with reviewers, so the code side of things is pretty well sorted.&lt;/p&gt;
+
+&lt;p&gt;Similarly for processes: we should just go with the existing processes to the best of our ability, which is to say, constantly ask the gatekeepers if we’re doing it right. Embrace the fact that everything in Firefox is high-touch, and use existing personal relationships to ask early and often if we’ve missed any important steps. We will always miss something, whether it’s new rules for some step, or neglecting to get signoff from some newly-created team, but we can plan for that in the schedule. I think we’ve hit most of the big surprises in shipping Screenshots.&lt;/p&gt;
+
+&lt;h3 id=&quot;aim-for-bigger-audiences-in-test-pilot&quot;&gt;Aim for bigger audiences in Test Pilot&lt;/h3&gt;
+
+&lt;p&gt;Because it’s difficult to iterate on features when code is inside Firefox, we should make our Test Pilot audience as close to a release audience as possible. We want to aim for the everyday users, not the early adopters. I think we can do this by just advertising Test Pilot experiments more heavily.&lt;/p&gt;
+
+&lt;p&gt;By gathering data from a larger audience, our data will be more representative of the release audience, and give us a better chance of feature success.&lt;/p&gt;
+
+&lt;h3 id=&quot;aim-for-web-flavored-features--avoid-dramatic-changes-to-the-firefox-ui&quot;&gt;Aim for web-flavored features / avoid dramatic changes to the Firefox UI&lt;/h3&gt;
+
+&lt;p&gt;Speaking as the person who did “the weird Gecko stuff” on both Universal Search and Min-Vid, doing novel things with the current Firefox UI is hard, for all the reasons Firefox things are hard: the learning curve is significant and it’s high-touch. Knowledge of how the code works is confined to a small group of people, the docs aren’t great, and learning how things work requires reading the source code, plus asking for help on IRC.&lt;/p&gt;
+
+&lt;p&gt;Given that our team’s strengths lie in web development, we will be more successful if our features focus on the webby things: cross-device, mobile, or cloud integration; bringing the ‘best of the web’ into the browser. This is stuff we’re already good at, stuff that could be a differentiator for Firefox just as much as new Firefox UI, and we can iterate much more quickly on server code.&lt;/p&gt;
+
+&lt;p&gt;This said, if Firefox Product wants to reshape the browser UI itself in powerful, unexpected, novel ways, we can do it, but we should have some Firefox or Platform devs committed to the team for a given experiment.&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 09 Dec 2017 00:36:00 +0000</pubDate>
+        <link>http://6a68.net/2017/bugzilla-github-and-graduating-into-firefox/</link>
+        <guid isPermaLink="true">http://6a68.net/2017/bugzilla-github-and-graduating-into-firefox/</guid>
+        
+        
+        <category>mozilla</category>
+        
+        <category>test-pilot</category>
+        
+        <category>screenshots</category>
+        
+      </item>
+    
+      <item>
+        <title>Bootstrapping Test Pilot Community through Public Decision Making</title>
+        <description>&lt;p&gt;This proposal is pulled verbatim from &lt;a href=&quot;https://mail.mozilla.org/pipermail/testpilot-dev/2016-October/000275.html&quot;&gt;a message&lt;/a&gt; I sent to the Test Pilot mailing list a few minutes ago.&lt;/p&gt;
+
+&lt;p&gt;The question is: how do we best begin to build a community around Test Pilot?&lt;/p&gt;
+
+&lt;p&gt;My answer: start by making decisions in public.&lt;/p&gt;
+
+&lt;p&gt;If this seems interesting to you, read on below.&lt;/p&gt;
+
+&lt;h2 id=&quot;proposed-participation-timeline&quot;&gt;Proposed Participation Timeline&lt;/h2&gt;
+
+&lt;p&gt;Q4 2016: Start by making decisions in public, in the Discourse user forums.&lt;/p&gt;
+
+&lt;p&gt;Q4 2016 - Q1 2017: Once we’ve made our process accessible to contributors, ask active Mozillians to get involved. Build an awesome core community. Advertise idea submissions to active Mozillians &amp;amp; iterate on the submission system before a huge public influx.&lt;/p&gt;
+
+&lt;p&gt;Q1-Q2 2017: Once the core community is in place, and idea submission has been tweaked, get Marketing involved with a public call for ideas. Our awesome core community will help manage the influx: greet newcomers, bash trolls, de-dupe suggestions.&lt;/p&gt;
+
+&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+
+&lt;p&gt;To frame the discussion, I wrote up some &lt;a href=&quot;http://6a68.net/2016/open-product-development/&quot;&gt;thoughts&lt;/a&gt; on what a more open, community-centered product development cycle might look like. TL;DR: give community a seat at the table by offering equal visibility into the process, and opportunities to provide input at decision points.&lt;/p&gt;
+
+&lt;p&gt;See also &lt;a href=&quot;http://producingoss.com/en/producingoss.html#avoid-private-discussions&quot;&gt;Producing OSS&lt;/a&gt;, which makes interesting points on the importance of public decision-making.&lt;/p&gt;
+
+&lt;h2 id=&quot;suggested-q4-plan&quot;&gt;Suggested Q4 plan&lt;/h2&gt;
+
+&lt;p&gt;In Q4, we can set the stage for community by making our work public:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ask product and UX to move decision making discussions to Discourse&lt;/li&gt;
+  &lt;li&gt;ask experiment teams to post in Discourse as they launch, measure, iterate, and wind down&lt;/li&gt;
+  &lt;li&gt;make Discourse a secondary call to action on the Test Pilot experiment pages&lt;/li&gt;
+  &lt;li&gt;deprecate mailing list in favor of Discourse&lt;/li&gt;
+  &lt;li&gt;(if there’s time) ask vetted, active Mozillians to join the conversation&lt;/li&gt;
+  &lt;li&gt;(if there’s time) ask Mozillians to share ideas&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If we make these changes in Q4, then by Q1, we’ll have plenty of content in Discourse. New community members will tend to model their input on the tone and content of the existing discussion; for this reason, I think we should hold the open call until a bit later. I realize I’m contradicting my own recent suggestion, but I do think this approach will yield better results.&lt;/p&gt;
+
+&lt;h2 id=&quot;key-result-100-monthly-active-discourse-users&quot;&gt;Key Result: 100 monthly active Discourse users&lt;/h2&gt;
+
+&lt;p&gt;One natural number to measure would be the number of monthly active Discourse users (MADU), meaning: users who post at least once a month in the Test Pilot category. Right now, this number is probably below 10. If all the dev teams and product/UX get involved, that’ll jump to, maybe, 30 MADUs. If we get Mozillians engaged, we could see this number jump into the hundreds. 100 MADUs seems ambitious, but possible.&lt;/p&gt;
+
+&lt;h2 id=&quot;q4-plan-in-detail&quot;&gt;Q4 plan in detail&lt;/h2&gt;
+
+&lt;p&gt;It’s a bit buried in the list above, but I think we should deprecate the mailing list, and move discussion to Discourse instead. Our current list has little traffic, and a primitive, plain text archive that doesn’t allow search. It would be easy to move the current traffic to Discourse. Finally, moving to Discourse would encourage the Test Pilot team to use it.&lt;/p&gt;
+
+&lt;p&gt;Going into a bit more detail on the types of content that should move to Discourse to help seed our community:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Design phase (product / UX):&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Idea proposals &amp;amp; discussion&lt;/li&gt;
+  &lt;li&gt;Decision making discussions: which ideas to invest in, and why those ideas.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Development / iteration phase (product / UX / dev):&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Summaries of user interaction data (how are people using the product, how many keep using it)&lt;/li&gt;
+  &lt;li&gt;High level discussion of which features to add, change, or remove, grounded in the public interaction data&lt;/li&gt;
+  &lt;li&gt;I’m not yet sure how much development discussion should happen on Discourse vs. a specific mailing list; we can ask around to see what approaches different teams would like to try.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Graduation / end of cycle phase (product):&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Discussions about whether to keep an experiment running, move into Firefox, or retire it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;wrapping-up&quot;&gt;Wrapping up&lt;/h1&gt;
+
+&lt;p&gt;That does it for the mailing list post.&lt;/p&gt;
+
+&lt;p&gt;What do you think about this proposal? Is this a good way to build the foundations of a participatory Test Pilot community?&lt;/p&gt;
+
+&lt;p&gt;Let me know! Twitter and email are in the footer below.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 05 Oct 2016 19:30:00 +0000</pubDate>
+        <link>http://6a68.net/2016/public-decision-making/</link>
+        <guid isPermaLink="true">http://6a68.net/2016/public-decision-making/</guid>
+        
+        
+        <category>mozilla</category>
+        
+        <category>test-pilot</category>
+        
+      </item>
+    
+      <item>
+        <title>Test Pilot and Open Product Development</title>
+        <description>&lt;p&gt;Test Pilot started out as a better way for Mozilla to build ambitious new features in Firefox: prototype features as add-ons, share with an opt-in beta testing community, and iterate much more quickly than the Firefox release cycle allows. This all makes sense, and it’s amazing how much we’ve accomplished in just over a year–but this conception leaves out the community algother.&lt;/p&gt;
+
+&lt;p&gt;How could Test Pilot be more open, more participatory?&lt;/p&gt;
+
+&lt;p&gt;Well, what if the Test Pilot team asked the community for feature ideas?&lt;/p&gt;
+
+&lt;p&gt;Even better: what if Test Pilot shipped prototypes built by self-organized teams of community members (volunteer or staff)?&lt;/p&gt;
+
+&lt;p&gt;What if we think about Test Pilot as &lt;em&gt;a community of contributors interested in discussing and building new Firefox features&lt;/em&gt;?&lt;/p&gt;
+
+&lt;p&gt;Yeah, that’s the stuff!&lt;/p&gt;
+
+&lt;p&gt;I don’t have the time or space to get deeper into this vision right now, but I will mention it in another post, soon.&lt;/p&gt;
+
+&lt;p&gt;Assuming it makes sense to build products in the open from the early stages, how might we get there?&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Here’s a rough sketch of an open product development lifecycle for Firefox features, centered around Test Pilot.&lt;/p&gt;
+
+&lt;h3 id=&quot;generating-and-discussing-feature-ideas&quot;&gt;Generating and discussing feature ideas&lt;/h3&gt;
+&lt;p&gt;An inventor with an idea creates a Discourse account and creates a post describing their idea. This could be anyone: a product manager at Mozilla, or a new Mozillian located anywhere in the world.&lt;/p&gt;
+
+&lt;p&gt;Interested community members discuss the idea, and help the inventor improve their proposal.&lt;/p&gt;
+
+&lt;p&gt;Community members with user research skills can help generate qualitative or quantitative insights about ideas they are interested in.&lt;/p&gt;
+
+&lt;h3 id=&quot;turning-ideas-into-working-prototypes&quot;&gt;Turning ideas into working prototypes&lt;/h3&gt;
+&lt;p&gt;Community members with design and development skills self-organize to build prototypes of ideas they believe in.&lt;/p&gt;
+
+&lt;p&gt;Companies (like Mozilla) can sponsor development of ideas.&lt;/p&gt;
+
+&lt;h3 id=&quot;deciding-which-prototypes-belong-in-firefox-test-pilot&quot;&gt;Deciding which prototypes belong in Firefox Test Pilot&lt;/h3&gt;
+&lt;p&gt;Every few months, someone from the Firefox product org leads a public discussion about which of the in-progress prototypes might be a good fit for the Firefox roadmap.&lt;/p&gt;
+
+&lt;p&gt;The decision-making process is a public, open conversation based on publicly defined criteria (the public Firefox roadmap and Mozilla’s guiding principles).&lt;/p&gt;
+
+&lt;p&gt;Input from the community is welcome, the Firefox product org makes the final decision, and deliberations happen in the same public channels used by the rest of the community.&lt;/p&gt;
+
+&lt;h3 id=&quot;sharing-prototypes-with-the-firefox-test-pilot-audience&quot;&gt;Sharing prototypes with the Firefox Test Pilot audience&lt;/h3&gt;
+&lt;p&gt;This is the part we’ve already built at &lt;a href=&quot;https://testpilot.firefox.com&quot;&gt;https://testpilot.firefox.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Prototypes ship in the Test Pilot site, and Mozilla provides marketing support and a global audience. Firefox users interested in trying new features install different prototypes, and offer feedback on what they do or don’t like.&lt;/p&gt;
+
+&lt;h3 id=&quot;sharing-prototypes-that-dont-make-it-into-test-pilot&quot;&gt;Sharing prototypes that don’t make it into Test Pilot&lt;/h3&gt;
+&lt;p&gt;Like any other Firefox add-on, teams ship in AMO (or self-host) and self-promote.&lt;/p&gt;
+
+&lt;p&gt;It’s still possible to create a great feature that later makes it into Test Pilot, or becomes a great add-on on its own, and teams can continue to discuss features and updates with the Test Pilot community.&lt;/p&gt;
+
+&lt;h3 id=&quot;iterating-on-the-product-concept&quot;&gt;Iterating on the product concept&lt;/h3&gt;
+&lt;p&gt;Once launched in Test Pilot, the product should evolve based on quantitative usage data, as well as qualitative user feedback.&lt;/p&gt;
+
+&lt;p&gt;Prototype building teams are encouraged to make their discussions public, so that interested community members can provide input.&lt;/p&gt;
+
+&lt;h3 id=&quot;from-test-pilot-prototype-to-firefox&quot;&gt;From Test Pilot prototype to Firefox&lt;/h3&gt;
+&lt;p&gt;The Firefox product org decides which Test Pilot experiments to turn into real browser features. Again, this is an open discussion, centered around criteria any contributor could understand (except for contractual / partner private factors).&lt;/p&gt;
+
+&lt;h3 id=&quot;from-test-pilot-prototype-to-amo&quot;&gt;From Test Pilot prototype to AMO&lt;/h3&gt;
+&lt;p&gt;Ideas that fail to catch on with a big audience, at the end of their Test Pilot run, can still be supported by the original team, or handed off to other community members, and permanently hosted on AMO.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Next steps: I’m out of time for now, but I’d like to explore which parts of this theoretical open product dev cycle might make sense at Mozilla. In other words, stay tuned, more to come :-)&lt;/p&gt;
+
+&lt;p&gt;What do you think? Let me know! Twitter and email are in the footer below.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 05 Oct 2016 00:36:00 +0000</pubDate>
+        <link>http://6a68.net/2016/open-product-development/</link>
+        <guid isPermaLink="true">http://6a68.net/2016/open-product-development/</guid>
+        
+        
+        <category>mozilla</category>
+        
+        <category>test-pilot</category>
+        
+      </item>
+    
+      <item>
+        <title>The Joy of the Hack: Gecko Focus Stealing Edition</title>
+        <description>&lt;p&gt;I’ve been working on a prototype, on and off, over the past year. The idea 
+is to do cool new stuff with the little popup menu that appears below the
+Firefox address bar as you type into it:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.dropbox.com/s/94876wh1g3042ik/Screen%20Shot%202016-03-31%20at%206.01.16%20PM.png?dl=0&amp;amp;raw=true&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This prototype will be available to a beta testing audience as part of the
+new Test Pilot program at Mozilla, which is slated to launch in May. See
+the links section at the end of this article for more about Test Pilot.&lt;/p&gt;
+
+&lt;p&gt;There are lots of experiments we’d like to try with the urlbar, but the first one shows
+a server-generated recommendation above the existing history items and search suggestions.
+Because this is just a prototype, we want to get as much quality as we can with as
+little work as possible–which means we’re relying heavily on third-party services.&lt;/p&gt;
+
+&lt;p&gt;The recommendation is generated by a really simple algorithm:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;You type something in the urlbar, like ‘lol wut p’, and the keystrokes are sent to a server.&lt;/li&gt;
+  &lt;li&gt;The server looks up search suggestions for ‘lol wut p’, and finds that the top suggestion is ‘lol wut pear’.&lt;/li&gt;
+  &lt;li&gt;The server sends the suggestion, ‘lol wut pear’, to a search engine service; the top result is a page about that meme.&lt;/li&gt;
+  &lt;li&gt;The top result is sent back to the browser, where it’s shown in the urlbar popup:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.dropbox.com/s/z7mr6lz2iov7nwa/Screen%20Shot%202016-03-31%20at%203.49.14%20PM.png?dl=0&amp;amp;raw=true&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;interacting-with-the-popup&quot;&gt;Interacting with the popup&lt;/h4&gt;
+
+&lt;p&gt;Keyboard interactions with the popup are straightforward.
+The list of results can be traversed using the up and down keys; a blue
+highlight tells the user which item is currently selected. Hitting ‘Enter’ loads 
+the URL of the highlighted item.&lt;/p&gt;
+
+&lt;p&gt;If none of the results are highlighted when the user hits ‘Enter’, the browser either
+surfs to the URL in the urlbar, or searches the default search engine for the
+string in the urlbar. To clarify this search-or-navigate behavior, a top row
+was recently added to the urlbar, highlighted by default, which explains the
+options visually:&lt;/p&gt;
+
+&lt;p&gt;If the urlbar contents look like a URL, the top row explains that you’ll visit that URL by hitting Enter:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.dropbox.com/s/i0mrr4hgu0qm7uj/Screen%20Shot%202016-03-31%20at%208.58.03%20PM.png?dl=0&amp;amp;raw=true&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Otherwise, the top row explains that you’ll search for the typed string by hitting Enter:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.dropbox.com/s/gj00jtx4lxl5eeb/Screen%20Shot%202016-03-31%20at%208.57.45%20PM.png?dl=0&amp;amp;raw=true&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;fitting-the-recommendation-into-the-existing-interface&quot;&gt;Fitting the recommendation into the existing interface&lt;/h4&gt;
+
+&lt;p&gt;Due to technical constraints, we’re inserting our recommendation above the existing list of results.
+Rather than continue to highlight the top results row, it seemed best to remove the highlight
+completely.&lt;/p&gt;
+
+&lt;p&gt;This initially seemed like a pretty simple task: the highlight is set by adjusting the &lt;code class=&quot;highlighter-rouge&quot;&gt;selectedIndex&lt;/code&gt;
+property on the panel, and setting it to &lt;code class=&quot;highlighter-rouge&quot;&gt;-1&lt;/code&gt; removes the highlight completely, so the
+&lt;code class=&quot;highlighter-rouge&quot;&gt;stealHighlight&lt;/code&gt; function initially might look something like:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function stealHighlight() {
+  gURLBar.popup.selectedIndex = -1;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Sadly, this approach doesn’t work:&lt;/p&gt;
+
+&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;https://www.youtube.com/embed/kKVzIGi8Nuk&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;The results list is stealing the highlight back! What’s going on?&lt;/p&gt;
+
+&lt;p&gt;It turns out that the list of results isn’t rendered all at once. To keep the urlbar
+responsive to additional keystrokes or other user input, the results list is rendered
+a little at a time, in chunks of 5 rows, up to 6 times, for a total of 30 results in
+a scrollable list.&lt;/p&gt;
+
+&lt;p&gt;In addition, each time a new set of rows is inserted, the highlight is reapplied to
+the selected item in the popup. This is why naively unsetting &lt;code class=&quot;highlighter-rouge&quot;&gt;selectedIndex&lt;/code&gt; didn’t
+work: the recommendation finishes rendering before the results list, so the
+highlight is quickly stolen back.&lt;/p&gt;
+
+&lt;p&gt;What to do?&lt;/p&gt;
+
+&lt;p&gt;There are two problems to be solved: detecting when new results are inserted,
+and stealing the highlight back quickly.&lt;/p&gt;
+
+&lt;h4 id=&quot;detecting-when-results-are-inserted&quot;&gt;Detecting when results are inserted&lt;/h4&gt;
+
+&lt;p&gt;The first problem, detecting when results are inserted, was a tough one. The
+UI controller code that fetches and inserts results is written in C++ (ugh),
+and there’s really no way to break into that code from an add-on. The C++
+controller code is &lt;a href=&quot;https://dxr.mozilla.org/mozilla-central/source/toolkit/components/autocomplete/nsAutoCompleteController.cpp&quot;&gt;a huge file&lt;/a&gt;, so although Gecko’s XPCOM component system does
+allow components to be written in JS or C++, porting all of its behavior to JS would
+have required a rewrite–not a viable option. The existing
+code also doesn’t fire any signals that could be used to detect when
+results are about to be inserted.&lt;/p&gt;
+
+&lt;p&gt;The only option I could come up with was to use a &lt;code class=&quot;highlighter-rouge&quot;&gt;MutationObserver&lt;/code&gt;
+(&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver&quot;&gt;MDN&lt;/a&gt;) to listen
+for changes in the popup’s XUL DOM when the results were inserted. Even this required
+some care: the results list recycles DOM nodes as a
+performance enhancement, so listening for changes in the popup’s
+&lt;code class=&quot;highlighter-rouge&quot;&gt;childList&lt;/code&gt; wasn’t enough. Happily, XUL elements store visible data in attributes,
+as you can see in this example of a typical result:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;richlistitem
+  xmlns=&quot;http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul&quot;
+  url=&quot;https://www.bing.com/search?q=lol+wut&amp;amp;amp;pc=MOZI&quot;
+  title=&quot;lol wut - Bing&quot;
+  type=&quot;favicon&quot;
+  text=&quot;lol wut p&quot;
+  class=&quot;autocomplete-richlistitem&quot;
+  image=&quot;moz-anno:favicon:https://www.bing.com/s/a/bing_p.ico&quot;/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When a result row is reused, its &lt;code class=&quot;highlighter-rouge&quot;&gt;url&lt;/code&gt; attribute is changed to reflect the
+new result’s URL, and attribute changes are visible to MutationObservers.
+Ultimately, listening for changes on the &lt;code class=&quot;highlighter-rouge&quot;&gt;url&lt;/code&gt; attribute, along with
+changes in the number of child elements of the popup, led to fairly reliable signals.&lt;/p&gt;
+
+&lt;h4 id=&quot;quickly-stealing-the-highlight&quot;&gt;Quickly stealing the highlight&lt;/h4&gt;
+
+&lt;p&gt;The second problem, stealing the highlight quickly enough to prevent flickering,
+was a challenge.&lt;/p&gt;
+
+&lt;p&gt;We could try using &lt;code class=&quot;highlighter-rouge&quot;&gt;setTimeout&lt;/code&gt; ourselves, to steal the highlight on a later turn,
+but this doesn’t quite work: depending on random timing issues, another set of
+results might be inserted after the second time we steal the highlight.&lt;/p&gt;
+
+&lt;p&gt;Another problem with relying on &lt;code class=&quot;highlighter-rouge&quot;&gt;setTimeout&lt;/code&gt; is that rendering the results is slow,
+so our delayed highlight stealing code can sometimes get stuck behind delayed result rendering code
+in the timer queue–another nondeterministic race that adds up to
+noticeable blue flickering, or the highlight again getting stolen back by the results list.&lt;/p&gt;
+
+&lt;p&gt;There’s another way to schedule future code execution in JavaScript: &lt;code class=&quot;highlighter-rouge&quot;&gt;requestAnimationFrame&lt;/code&gt;.
+Where &lt;code class=&quot;highlighter-rouge&quot;&gt;setTimeout(fn, n)&lt;/code&gt; asks the browser to call &lt;code class=&quot;highlighter-rouge&quot;&gt;fn&lt;/code&gt; &lt;strong&gt;at least&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;n&lt;/code&gt;
+milliseconds in the future, &lt;code class=&quot;highlighter-rouge&quot;&gt;requestAnimationFrame(fn)&lt;/code&gt; asks the browser to call &lt;code class=&quot;highlighter-rouge&quot;&gt;fn&lt;/code&gt;
+&lt;strong&gt;on the very next frame&lt;/strong&gt;, just before it flushes the rendered page to the screen.
+rAF allows the highlight stealing code to cut in line, undoing highlight changes
+at the last possible instant.&lt;/p&gt;
+
+&lt;p&gt;Using a single rAF wasn’t enough, for the same reasons that a single &lt;code class=&quot;highlighter-rouge&quot;&gt;setTimeout&lt;/code&gt;
+wasn’t enough. However, chaining rAF calls allows multiple successive frames to be
+altered, and this is just aggressive enough to work fairly well.&lt;/p&gt;
+
+&lt;p&gt;The working highlight stealing code basically does this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// In response to each observed mutation event,
+// steal the highlight on the current and the next two frames.
+function onMutation() {
+  stealHighlight();
+  requestAnimationFrame(() =&amp;gt; {
+    stealHighlight();
+    requestAnimationFrame(() =&amp;gt; {
+      stealHighlight();
+    });
+  });
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;It’s a bit of a weird hack, but it certainly works well enough for beta testing:&lt;/p&gt;
+
+&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;https://www.youtube.com/embed/_LfBQSIBsRY&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;If you look carefully at the video, there’s some blue flicker that appears when I hit the space bar.
+I think this is because the existing code trims the whitespace,
+detects that the trimmed query hasn’t changed, and immediately re-renders,
+while the prototype code isn’t quite that smart yet. The few milliseconds’ delay translates
+into the highlighted top row getting rendered before the recommendation, and just
+for a moment, that blue flicker is visible.&lt;/p&gt;
+
+&lt;h4 id=&quot;links&quot;&gt;Links&lt;/h4&gt;
+
+&lt;p&gt;The working highlight management code is &lt;a href=&quot;https://github.com/mozilla/universal-search/blob/master/lib/ui/highlight-manager.js&quot;&gt;here&lt;/a&gt;, if you’d like to read it.
+It’s fairly complex: highlight management requires adjusting the
+highlight in response to key or mouse events. That said, it’s heavily
+commented, and might be interesting reading.&lt;/p&gt;
+
+&lt;p&gt;If you’d like to learn more about this experiment, its &lt;a href=&quot;https://wiki.mozilla.org/Test_Pilot/Universal_Search&quot;&gt;wiki page&lt;/a&gt;
+is a good place to start: you’ll find links to the github repos, UX artifacts, some producty discussion,
+and contact info for the team, if you’d like to get involved.&lt;/p&gt;
+
+&lt;p&gt;If you’re interested in the new Test Pilot, I’d suggest checking out &lt;a href=&quot;https://wiki.mozilla.org/Test_Pilot&quot;&gt;the wiki&lt;/a&gt;,
+or Wil’s &lt;a href=&quot;http://micropipes.com/blog//2016/01/27/meet-the-new-test-pilot/&quot;&gt;blog post&lt;/a&gt; about it.&lt;/p&gt;
+
+&lt;h4 id=&quot;comments&quot;&gt;Comments?&lt;/h4&gt;
+
+&lt;p&gt;If you have questions or have spotted a typo, feel free to email or tweet at me.&lt;/p&gt;
+
+&lt;p&gt;If you’d like to offer longer comments or a response, I’d like to encourage you to post your own response
+on your own website, and share the link with me over email or twitter.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 31 Mar 2016 23:42:55 +0000</pubDate>
+        <link>http://6a68.net/2016/highlight-stealing-hack/</link>
+        <guid isPermaLink="true">http://6a68.net/2016/highlight-stealing-hack/</guid>
+        
+        
+        <category>mozilla</category>
+        
+        <category>front-end-programming</category>
+        
+        <category>hacks</category>
+        
+      </item>
+    
+  </channel>
+</rss>
